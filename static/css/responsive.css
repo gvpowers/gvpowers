@@ -1,0 +1,226 @@
+/* ============================================================
+   GV POWERS — Editorial Luxury responsive layer
+   Breakpoints: 1100 / 900 / 640 / 430
+   ============================================================ */
+
+/* ---------- ≤1100px : compact desktop ---------- */
+@media (max-width: 1100px) {
+  :root { --nav-height: 76px; }
+
+  .nav-links { gap: 0; }
+  .nav-links__link { padding: 12px 9px; font-size: 0.64rem; letter-spacing: 0.1em; }
+  .btn--catalogue { padding: 10px 15px; font-size: 0.64rem; }
+  .brand__logo { height: 44px; }
+
+  .hero { grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr); }
+  .hero__content { padding-right: 44px; }
+  .hero__title { font-size: clamp(2.9rem, 6vw, 4.4rem); }
+  .hero__media { margin: 28px 28px 28px 0; }
+
+  .stat { padding: 30px 12px; }
+  .stat__label { font-size: 0.6rem; max-width: 120px; }
+
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .feature:nth-child(3), .feature:nth-child(4) { border-top-color: var(--line); }
+
+  .intro__grid,
+  .about-story { gap: 52px; }
+
+  .coverage-panel__inner { padding: 50px 44px; }
+  .service-closing { padding: 40px 38px; }
+
+  .projects-stat { padding: 36px 18px 32px; }
+  .projects-stat strong { font-size: 2.7rem; }
+  .projects-stat__text { font-size: 1.9rem; }
+
+  .footer-grid { gap: 34px; }
+}
+
+/* ---------- ≤900px : tablet ---------- */
+@media (max-width: 900px) {
+  .nav-links, .btn.btn--catalogue { display: none; }
+  .nav-toggle { display: flex; margin-left: auto; }
+  .glass-nav { gap: 14px; padding-inline: 4px; }
+
+  /* Hero becomes a stacked editorial page: copy, then photograph. */
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+  .hero__content {
+    order: 1;
+    min-width: 0;
+    padding: 56px 24px 42px;
+  }
+  .hero__title { max-width: 14ch; font-size: clamp(2.9rem, 8vw, 4.3rem); }
+  .hero__lede { max-width: 52ch; margin-bottom: 30px; }
+  .hero__media {
+    order: 2;
+    height: 42vh;
+    min-height: 300px;
+    margin: 0 24px 30px;
+  }
+  .hero__media::after { inset: 12px; }
+
+  .services { margin-top: 0; padding-block: 34px 8px; }
+  .services__grid { grid-template-columns: 1fr; gap: 14px; }
+  .service-card { padding: 22px 24px; }
+
+  .stats-panel { grid-template-columns: repeat(3, 1fr); }
+  .stat + .stat::before { display: none; }
+  .stat { padding: 24px 14px; }
+
+  .intro__grid,
+  .about-story,
+  .solution-detail,
+  .solution-detail--flip,
+  .bess {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .solution-detail--flip .solution-detail__copy { order: 1; }
+  .solution-detail--flip .solution-detail__media { order: 2; }
+  .bess__media { order: 2; }
+
+  .intro__media { max-width: 580px; }
+  .floating-badge { left: 12px; top: 14px; }
+  .framed-image--small { display: none; }
+
+  .solutions-grid { grid-template-columns: 1fr; }
+  .solution-tile { padding: 28px 26px; }
+  .solutions-row { padding: 26px 26px; gap: 18px; }
+
+  .mv-grid { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: repeat(2, 1fr); gap: 0 32px; }
+
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-cards { grid-template-columns: repeat(2, 1fr); }
+  .enquiry { padding: 32px 28px; }
+
+  .coverage-panel__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 42px 34px;
+  }
+  .service-closing { flex-direction: column; align-items: flex-start; }
+  .service-closing__actions { flex-direction: row; flex-wrap: wrap; }
+  .cta-band { flex-direction: column; align-items: flex-start; padding: 36px 32px; }
+  .catalogue-strip { flex-direction: column; align-items: flex-start; padding: 30px 28px; }
+
+  :root {
+    --space-sm: 36px;
+    --space-md: 56px;
+    --space-lg: 72px;
+  }
+
+  .section-head { margin-bottom: 32px; }
+
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+}
+
+/* ---------- ≤640px : large phones ---------- */
+@media (max-width: 640px) {
+  .container { width: min(100% - 36px, var(--container)); }
+
+  :root {
+    --nav-height: 68px;
+    --space-sm: 28px;
+    --space-md: 44px;
+    --space-lg: 56px;
+  }
+
+  .glass-nav { padding-inline: 2px; }
+  .brand__logo { height: 40px; }
+
+  .hero__content { padding: 44px 20px 34px; }
+  .hero__title { font-size: clamp(2.55rem, 11vw, 3.2rem); max-width: 12ch; }
+  .hero__lede { font-size: 1rem; margin-bottom: 26px; }
+  .hero__actions { flex-direction: column; align-items: stretch; }
+  .hero__actions .btn { width: 100%; }
+  .hero__media { height: 38vh; min-height: 260px; margin: 0 18px 24px; }
+
+  .services { padding-top: 26px; }
+  .service-card { gap: 12px; padding: 20px 22px; }
+  .service-card__title { font-size: 1.5rem; }
+  .glass-arrow { --gi-size: 38px; }
+
+  .stats-panel { grid-template-columns: repeat(2, 1fr); }
+  .stat { padding: 22px 10px; }
+  .stat:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .stat__value { font-size: 2rem; }
+
+  .section-head--row { flex-direction: column; align-items: flex-start; }
+
+  .page-hero { min-height: 42vh; }
+  .page-hero__content { padding-block: 0 42px; }
+
+  .solutions-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .solutions-row .glass-arrow { margin-left: 0; }
+  .solutions-row__body h2 { font-size: 1.55rem; }
+
+  .values-grid { grid-template-columns: 1fr; gap: 0; }
+  .locations-grid { grid-template-columns: 1fr; }
+
+  .contact-cards { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .enquiry { padding: 26px 22px; }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; padding-block: 46px 36px; }
+  .footer-bottom__inner { flex-direction: column; text-align: center; }
+
+  .back-to-top { right: 16px; bottom: 16px; width: 46px; height: 46px; }
+  .whatsapp-float { left: 16px; bottom: 16px; width: 48px; height: 48px; }
+  .whatsapp-float svg { width: 24px; height: 24px; }
+
+  .error-card { padding: 42px 28px; }
+  .error-code { font-size: 4.2rem; }
+
+  .brand__est { display: none; }
+
+  .about-story__media { padding-bottom: 0; }
+  .floating-badge { padding: 13px 16px; }
+
+  .projects-stat + .projects-stat::before {
+    top: 0; bottom: auto; left: 10%; right: 10%; width: auto; height: 1px;
+    background: var(--line);
+  }
+}
+
+/* ---------- ≤430px : small phones ---------- */
+@media (max-width: 430px) {
+  .hero__title { font-size: clamp(2.3rem, 11.5vw, 2.8rem); }
+  .section-title { font-size: 1.75rem; }
+  .page-hero__title { font-size: 2.15rem; }
+
+  .stats-panel { grid-template-columns: repeat(2, 1fr); }
+  .stat__value { font-size: 1.9rem; }
+  .stat__label { font-size: 0.58rem; }
+
+  .projects-stats { grid-template-columns: 1fr; }
+  .projects-stat { padding: 28px 18px 24px; }
+  .projects-stat strong { font-size: 2.7rem; }
+
+  .mobile-menu { padding-top: 86px; }
+  .mobile-menu__panel > ul > li > a { font-size: 1.6rem; }
+
+  .btn { padding: 14px 22px; }
+  .footer-logo { width: 190px; }
+}
+
+/* ---------- Landscape phones ---------- */
+@media (max-height: 480px) and (orientation: landscape) {
+  .hero { min-height: 100vh; }
+  .hero__content { padding-block: 72px 48px; }
+  .hero__media { height: 60vh; }
+}
+
+/* ---------- Print ---------- */
+@media print {
+  .site-header, .mobile-menu, .back-to-top, .coverage-panel__actions,
+  .hero__actions, .whatsapp-card, .whatsapp-float, .hero__scroll-cue { display: none !important; }
+  body { background: white; color: black; }
+  .hero, .page-hero { min-height: auto; display: block; }
+  .hero__content { padding-block: 40px; }
+  .hero__media { display: none; }
+  .glass-card, .service-closing, .enquiry { box-shadow: none; border-color: #ccc; }
+}

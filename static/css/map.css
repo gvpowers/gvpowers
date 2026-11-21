@@ -1,0 +1,233 @@
+/* ============================================================
+   GV POWERS — Interactive India map (Leaflet)
+   Editorial Luxury styling: ivory panels, bronze rules, sharp edges.
+   ============================================================ */
+.map-section { padding-top: 38px; }
+
+.map-subtitle { color: rgba(244, 238, 227, 0.72); font-size: 0.95rem; }
+
+.map-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.map-filters { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.map-chip {
+  padding: 9px 20px;
+  border-radius: 1px;
+  font-weight: 800;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  transition: all 0.3s var(--ease);
+}
+.map-chip:hover { color: var(--bronze-deep); background: var(--paper-deep); border-color: var(--bronze); }
+.map-chip.is-active {
+  background: var(--bronze);
+  color: var(--paper);
+  border-color: var(--bronze);
+}
+
+.map-count {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--bronze-light);
+  white-space: nowrap;
+}
+
+.map-shell {
+  position: relative;
+  padding: 10px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+}
+.map-shell:hover,
+.map-locations-note:hover {
+  transform: none;
+  box-shadow: var(--shadow-soft);
+  border-color: var(--line-strong);
+}
+
+.gvp-map {
+  width: 100%;
+  height: clamp(360px, 62vh, 640px);
+  border-radius: 1px;
+  z-index: 1;
+  background: var(--paper-deep);
+}
+
+/* --- Leaflet popup — clean solid panel --- */
+.gvp-leaflet-popup .leaflet-popup-content-wrapper {
+  border-radius: 2px !important;
+  background: var(--surface) !important;
+  border: 1px solid var(--line-strong);
+  box-shadow: 0 22px 50px rgba(19, 29, 23, 0.3) !important;
+  color: var(--ink);
+}
+.gvp-leaflet-popup .leaflet-popup-content { margin: 16px 18px; line-height: 1.55; }
+.gvp-leaflet-popup .leaflet-popup-tip {
+  background: var(--surface) !important;
+  border: 1px solid var(--line-strong);
+}
+
+.map-popup h3 {
+  font-family: var(--font-head, Georgia, serif);
+  font-size: 1.22rem;
+  font-weight: 500;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+.map-popup__row {
+  margin: 0 0 6px;
+  font-size: 0.84rem;
+  color: var(--ink-soft);
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+.map-popup__row strong {
+  text-transform: uppercase;
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  color: var(--bronze);
+  min-width: 74px;
+}
+.map-popup__status {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 1px;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.map-popup__status--completed { background: rgba(47, 93, 69, 0.14); color: #2F5D45; }
+.map-popup__status--ongoing { background: rgba(138, 90, 43, 0.16); color: var(--bronze-deep); }
+.map-popup__desc {
+  margin: 10px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  font-size: 0.84rem;
+  color: var(--ink-soft);
+}
+.map-popup--office { background: var(--paper-deep) !important; }
+
+/* --- custom pins --- */
+.gvp-pin { background: transparent; border: 0; }
+.gvp-pin__dot {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 3px solid rgba(244, 238, 227, 0.95);
+}
+.gvp-pin--office .gvp-pin__office-flag {
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin-top: 8px;
+  border-radius: 50% 50% 50% 0;
+  background: linear-gradient(145deg, var(--bronze-light), var(--bronze));
+  border: 2px solid rgba(244, 238, 227, 0.95);
+  transform: rotate(-45deg);
+  box-shadow: 0 3px 10px rgba(19, 29, 23, 0.35);
+}
+.gvp-pin--office { z-index: 400; }
+
+/* loading + empty states */
+.map-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  z-index: 500;
+  font-weight: 700;
+  color: var(--bronze-deep);
+  background: rgba(244, 238, 227, 0.82);
+  border-radius: 1px;
+}
+.map-loading__ring {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 3px solid rgba(138, 90, 43, 0.2);
+  border-top-color: var(--bronze);
+  animation: map-spin 0.9s linear infinite;
+}
+@keyframes map-spin { to { transform: rotate(360deg); } }
+
+.map-empty {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  height: clamp(360px, 62vh, 640px);
+  z-index: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  text-align: center;
+  padding: 30px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 1px;
+}
+.map-empty p { font-weight: 600; color: var(--ink); max-width: 340px; }
+
+.map-locations-note {
+  margin: 14px 4px 4px;
+  padding: 12px 18px;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  flex-wrap: wrap;
+  box-shadow: none;
+}
+.map-locations-note strong { color: var(--ink); font-weight: 800; }
+.map-locations-note span { opacity: 0.75; }
+
+/* --- neutralise global reset effects that break Leaflet --- */
+.leaflet-tile { max-width: none !important; }
+.leaflet-marker-icon, .leaflet-marker-shadow { max-width: none !important; }
+.leaflet-container img { max-width: none !important; }
+
+/* Leaflet control theming */
+.leaflet-bar,
+.leaflet-bar a,
+.leaflet-control-attribution {
+  border-radius: 1px;
+}
+.leaflet-control-attribution {
+  background: rgba(252, 249, 243, 0.88) !important;
+  color: var(--ink-soft);
+}
+.leaflet-container a { color: var(--bronze-deep); }
+
+@media (max-width: 640px) {
+  .gvp-map { height: clamp(340px, 52vh, 520px); }
+  .map-empty { height: clamp(340px, 52vh, 520px); }
+  .map-toolbar { flex-direction: column; align-items: flex-start; }
+  .map-chip { padding: 8px 15px; font-size: 0.62rem; }
+
+  /* Leaflet mobile stacking: pins remain below the toolbar */
+  .leaflet-pane { z-index: 10 !important; }
+  .leaflet-top, .leaflet-bottom { z-index: 500 !important; }
+}
